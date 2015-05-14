@@ -5,12 +5,9 @@ A simple GUI to view the progress of an application being deployed on the PIAD s
 
 ### frontend
 
-- fetch node_modules
--- npm update
-- fetch bower_components
--- ./node_modules/bower/bin/bower update
-- Start a gulp task that compiles the code into frontend/build, and watches for code changes.
--- ./node_modules/gulp/bin/gulp.js
+- npm update
+- ./node_modules/bower/bin/bower update
+- ./node_modules/gulp/bin/gulp.js
 
 ### backend
 
@@ -21,5 +18,5 @@ A simple GUI to view the progress of an application being deployed on the PIAD s
 
 ### nginx
 
-- Create a domain piad.com in your hosts file pointing to the server. (127.0.0.1 for dev)
+- add piad.com to your hosts file
 - sudo nginx -c ~/code/paas-in-a-day-ui/proxy/nginx.conf
