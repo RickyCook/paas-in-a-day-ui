@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
+from lxml import html
 import requests
-import scrapy
 
 app = Flask(__name__)
 
@@ -11,18 +11,17 @@ def index():
 
 @app.route("/api/apps")
 def apps():
-    
+    page = requests.get('http://paas.dock.ci/')
+    tree = html.fromstring(page.text)
+
+    apps = [
+        {
+            'id': a.attrib['href'][6:],
+            'name': a.text
+        } for a in tree.xpath('//table/tr/td/a')]
+
     result = {
-        'data': [
-            {
-                'name': 'DockCI',
-                'id': 'dockci'
-            },
-            {
-                'name': 'Paas In A Day UI',
-                'id': 'paas-in-a-day-ui'
-            }
-        ]
+        'data': apps
     }
     return jsonify(**result)
 
