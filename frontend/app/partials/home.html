@@ -1,0 +1,37 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>Welcome to PaaS in a Day!</h1>
+        <p>PIAD is git push to server in one.five days!</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <h2 class="first-header">Applications</h2>
+            <table class="table table-striped" data-ng-hide="loading">
+                <thead>
+                    <tr>
+                        <th>Application</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="app in apps">
+                    <td><a ui-sref="^.app({appId:app.id})">{{ app.name }}</a></td>
+                </tr>
+                <tr ng-hide="apps">
+                    <td>
+                        <small>
+                            You don't have any apps! Where are they?!
+                        </small>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+

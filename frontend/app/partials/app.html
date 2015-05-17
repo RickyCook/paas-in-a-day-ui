@@ -1,0 +1,48 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row" id="outer">
+            <div id="top-section">
+                <div id="base"></div>
+                <div id="top" ng-class="current_deploy.stage"></div>
+                <div id="status">
+                    <div id="repo" ng-class="current_deploy.status.repo"></div>
+                    <div id="dockci" ng-class="current_deploy.status.dockci"></div>
+                    <div id="registry" ng-class="current_deploy.status.registry"></div>
+                    <div id="chronos" ng-class="current_deploy.status.chronos"></div>
+                    <div id="kubernetes" ng-class="current_deploy.status.kubernetes"></div>
+                </div>
+            </div>
+            <div id="bottom-section">
+                <div id="base"></div>
+                <div id="top" ng-class="current_deploy.stage"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <th>Created At</th>
+                    <th>Tag</th>
+                    <th>Commit</th>
+                    <th>Author</th>
+                    <th>State</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="deploy in deploys">
+                        <td>{{ deploy.created }}</td>
+                        <td>{{ deploy.tag }}</td>
+                        <td>{{ deploy.commit }}</td>
+                        <td>{{ deploy.author }}</td>
+                        <td>{{ deploy.state }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

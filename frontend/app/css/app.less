@@ -1,0 +1,224 @@
+@import "../../bower_components/bootstrap/less/bootstrap.less";
+// TODO: fonts for material!
+@import "../../bower_components/bootstrap-material-design/less/material.less";
+
+@primary: @teal;
+@footer-bg:       #1d2f3e; //@brand-5;
+@footer-color:    @teal;
+
+/* app css stylesheet */
+
+.jumbotron {
+  background-color: black !important;
+}
+
+.first-header {
+  margin-top: 0px;
+}
+
+.navbar-collapse {
+  color: white;
+}
+
+.navbar {
+  margin-bottom: 0;
+  background-color: @footer-bg !important;
+  color: @footer-color !important;
+}
+
+.nav-panel {
+    margin-top: 20px;
+}
+
+///* Sticky footer styles
+//-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 80px + @line-height-computed + @line-height-computed;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  /* Set the fixed height of the footer here */
+  height: 80px + @line-height-computed + @line-height-computed;
+  padding-top: @line-height-computed;
+
+  background-color: @footer-bg;
+  color: @footer-color;
+}
+
+// Mobile http://webdesign.tutsplus.com/tutorials/quick-tip-dont-forget-the-viewport-meta-tag--webdesign-5972
+@viewport{
+  width: extend-to-zoom;
+  zoom: 1.0;
+}
+
+@-ms-viewport{
+  width: extend-to-zoom;
+  zoom: 1.0;
+}
+
+
+///* Progress bar
+//-------------------------------------------------- */
+@deploy-height: 289px;
+@deploy-width: 1170px;
+
+@top-height: 98px;
+@bottom-height: @deploy-height - @top-height;
+
+#outer {
+  height: @deploy-height;
+  width: @deploy-width;
+}
+
+#top-section {
+  height: @top-height;
+  width: @deploy-width;
+
+  #top {
+    &.local {
+      width: 91px;
+    }
+    &.repo {
+      width: 223px;
+    }
+    &.dockci {
+      width: 418px;
+    }
+    &.registry {
+      width: 612px;
+    }
+    &.chronos {
+      width: 806px;
+    }
+    &.kubernetes {
+      width: 1000px;
+    }
+    &.done {
+      width: @deploy-width;
+    }
+  }
+}
+
+#bottom-section {
+  height: @bottom-height;
+  width: @deploy-width;
+
+  #base, #top {
+    background-position-y: -@top-height;
+  }
+
+  #top {
+    &.local {
+      width: 100px;
+    }
+    &.repo {
+      width: 300px;
+    }
+    &.dockci {
+      width: 500px;
+    }
+    &.registry {
+      width: 700px;
+    }
+    &.chronos {
+      width: 900px;
+    }
+    &.kubernetes {
+      width: 1100px;
+    }
+    &.done {
+      width: @deploy-width;
+    }
+  }
+}
+
+#base {
+  position: absolute;
+  background-image: url("/img/base.png");
+  background-size: @deploy-width @deploy-height;
+  background-repeat: no-repeat;
+  height: @deploy-height;
+  width: @deploy-width;
+}
+
+// TODO: Change images so that the top circle containing tick/cross doesn't go past the edge of the large circle
+#top {
+  position: absolute;
+  background-image: url("/img/top.png");
+  background-size: @deploy-width @deploy-height;
+  background-repeat: no-repeat;
+  height: @deploy-height;
+  width: 0px;
+
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+}
+
+#bottom-section #top {
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+
+  -webkit-transition-delay: 500ms; /* Chrome, Safari, Opera */
+  transition-delay: 500ms;
+}
+
+// Ticks and crosses
+// This works by having a row of adjacent blocks with their backgrounds aligned relative to where they come in the order.
+#status {
+  position: absolute;
+  background-size: @deploy-width @deploy-height;
+  background-repeat: no-repeat;
+  height: @deploy-height;
+  width: @deploy-width;
+
+  #repo, #dockci, #registry, #chronos, #kubernetes, #tick, #cross {
+    height: @deploy-height;
+    display: inline-block;
+    background-size: @deploy-width @deploy-height;
+    background-repeat: no-repeat;
+    visibility: hidden;
+  }
+  #repo {
+    width: 300px;
+    background-position-x: 0px;
+  }
+  #dockci {
+    width: 200px;
+    background-position-x: -300px; // last background-position-x - last width = 0 - 300 = -300
+  }
+  #registry {
+    width: 200px;
+    background-position-x: -500px; // last background-position-x - last width = -300 - 200 = -500
+  }
+  #chronos {
+    width: 200px;
+    background-position-x: -700px; // last background-position-x - last width = -500 - 200 = -700
+  }
+  #kubernetes {
+    width: 200px;
+    background-position-x: -900px; // last background-position-x - last width = -700 - 200 = -900
+  }
+  .tick {
+    background-image: url("/img/ticks.png");
+    visibility: visible !important;
+
+  }
+  .cross {
+    background-image: url("/img/crosses.png");
+    visibility: visible !important;
+  }
+}

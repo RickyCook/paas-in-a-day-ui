@@ -1,0 +1,30 @@
+{
+  "name": "paas-in-a-day-ui",
+  "version": "0.0.1",
+  "authors": [
+    "Adam MacLeod <adam@macleod.id.au>",
+    "Ricky Cook <ricky@thatpanda.com>",
+    "Tim Watts <tim.watts@odecee.com.au>"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "*",
+    "angular-ui-router": "*",
+    "angular-cookies": "*",
+    "angular-resource": "*",
+    "mustache": "*",
+    "bootstrap": "*",
+    "highcharts-ng": "*",
+    "highcharts-release": "*",
+    "jquery": "~2.1.4",
+    "bootstrap-material-design": "~0.3.0"
+  }
+}

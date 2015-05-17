@@ -1,0 +1,25 @@
+{
+  "name": "paas-in-a-day-ui",
+  "version": "0.0.1",
+  "devDependencies": {
+    "bower": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "^2.2.0",
+    "gulp-clean": "*",
+    "gulp-concat": "*",
+    "gulp-csso": "*",
+    "gulp-htmlmin": "*",
+    "gulp-inject": "*",
+    "gulp-jscs": "*",
+    "gulp-jshint": "*",
+    "gulp-less": "*",
+    "gulp-ng-html2js": "*",
+    "gulp-ngmin": "*",
+    "gulp-removelogs": "*",
+    "gulp-sloc": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "jshint-stylish": "*",
+    "run-sequence": "*"
+  }
+}

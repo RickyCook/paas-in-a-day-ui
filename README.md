@@ -9,12 +9,17 @@ A simple GUI to view the progress of an application being deployed on the PIAD s
 - ./node_modules/bower/bin/bower update
 - ./node_modules/gulp/bin/gulp.js
 
+The frontend is an angular project that resides inside of frontend/app, when you run gulp it builds all the assets and
+pushes them into frontend/build, this directory is then served by nginx config inside of proxy/nginx.conf.
+
 ### backend
 
 - virtualenv env
 - source ./env/bin/activate
 - pip install -r requirements.txt
 - python piad.py
+
+Nginx expects this to be on localhost:5000
 
 ### nginx
 
