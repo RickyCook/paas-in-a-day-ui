@@ -18,5 +18,10 @@ A simple GUI to view the progress of an application being deployed on the PIAD s
 
 ### nginx
 
-- add piad.com to your hosts file
-- sudo nginx -c ~/code/paas-in-a-day-ui/proxy/nginx.conf
+- add piad.com to your hosts file to point at localhost
+- `sudo nginx -c ~/code/paas-in-a-day-ui/proxy/nginx.conf` to run nginx
+
+### Kubernetes endpoint
+
+- Grab host from https://github.com/RickyCook/paas-in-a-day/blob/master/ansible/hosts.ini
+- ssh -f root@128.199.235.232 -L 8080:root@128.199.235.232:8080 -N
